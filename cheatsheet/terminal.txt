@@ -1,0 +1,223 @@
+====================================================================================================
+                               Bash Terminal Command Reference Sheet
+====================================================================================================
+
+Document Syntax
+----------------------------------------------------------------------------------------------------
+The commands in this sheet will look like this:
+
+commandName argument1 <argument2> [argument3]
+ - These bullets will describe the command
+ - commandName is the name of the command
+ - argument1 is an argument which is written verbatim
+ - argument2 is a required argument which is replaced text you write. 
+   The angle brackets do not get typed.
+ - argument3 is an optional, replaceable argument.
+   The square brackets do not get typed.
+
+Example:
+git commit -m "<message>"
+- message should be in quotes but the angle brackets will not get typed
+- -m is an argument. Adding arguments to commands change the way they execute.
+  In this document, commands with seperate arguments will usually be shown seperately.
+
+Definitions
+----------------------------------------------------------------------------------------------------
+absolute path
+ - The path to a file, all the way from the root directory.
+ 
+argument
+ - A data item provided as input to a command
+ - e.g. for the command 'mkdir my_directory', my_directory is an argument.
+
+directory
+ - Directory is another word for folder. It's used in this context because 'folder' specifically
+   refers to a GUI folder (like on a Windows desktop). We're not working with a GUI, so we use
+   the term 'directory.'
+ - If a directory is inside another one, we refer to the inner one as a 'subdirectory' or 'child.'
+   We refer to the outer one as a 'parent.'
+
+GUI
+ - "Graphical User Interface." This is how we normally interact with computers (with a mouse,
+    dragging files around, clicking things, etc.). Before there were GUIs, people interacted with
+    computers entirely through a terminal.
+
+hidden file
+ - A file starting with a single period will not be shown to the user under normal circumstances.
+ - Developers usually hide files you shouldn't be messing with unless you know what you're doing.
+ - This is not true in Windows, but is true in terminals.
+   
+path
+ - Points to a specific file or directory. Represented by a series of directories seperated by
+   slashes ending with a file/directory name. 
+ - On my computer, this file is stored at:
+   /c/Users/mrpie/Desktop/DukeTIP/2020/JavaLessons/cheatsheet/terminal.txt
+ - Note that Windows uses backslashes, whereas our bash terminal uses forward slashes.
+ - With the Windows convention, my file is stored at:
+   C:\Users\mrpie\Desktop\DukeTIP\2020\JavaLessons\cheatsheet\terminal.txt
+
+relative path
+ - The path to the file from the current directory.
+ - e.g. If my working directory is /c/parent/my_dir and I type 'cat child/file_name.txt'
+   the contents of the file /c/parent/my_dir/child/file_name.txt will be printed to terminal.
+
+root
+ - The parent directory for every directory in the system. Represented by a single slash.
+ 
+terminal
+ - The interface users type commands into to interact with the computer.
+
+working directory
+ - In a terminal, the directory I'm currently 'in.' Imagine in the GUI, if you could only open one
+   folder at a time. Your working directory would be the folder you currently have open.
+
+Funky characters
+----------------------------------------------------------------------------------------------------
+. (single period)
+ - The shortcut for the directory you're currently in
+ - e.g. typing 'move other_folder/my_file.txt .' will move my_file.txt from the other directory
+   to your current directory.
+
+.. (two periods)
+ - The shortcut for the parent directory of your working directory
+ - e.g. if my working directory is Desktop/other_dir, typing 'cd ..' makes my working directory
+   Desktop.
+
+~ (tilde)
+ - The shortcut for the home directory
+ - On my computer, the home directory is /c/users/mrpie. If I type 'cd ~' I am taken to that
+   directory.
+
+"" (double-quotes)
+ - Place around file names with spaces in them to avoid having them get read as seperate arguments
+ - The command 'mkdir my folder' will make two directories, 'my' and 'folder'.
+ - The command 'mkdir "my folder"' will make one directory called 'my folder'
+ 
+; (semicolon)
+ - Place after commands if you want to run multiple commands on one line.
+ - e.g. 'mkdir src; touch File.java' will create the 'src' directory and the file src/File.java
+   all in one line.
+ 
+& (ampersand/'and' sign)
+ - Terminal usually waits until commands are finished before allowing you to type more input.
+ - Write an ampersand after your command to have it run in the background, so you can type
+   other commands in the meantime.
+
+Getting help
+----------------------------------------------------------------------------------------------------
+help [command_name]
+ - When typed without a command, it will display a help page.
+ - When typed with a command, it will display a help page for that command
+
+<command_name> --help
+ - Will also display the help page for a command
+ - The 'help' command doesn't know about every command, this method will usually give you a help
+   page.
+
+Navigation
+----------------------------------------------------------------------------------------------------
+cd [directory_name]
+ - Changes your working directory to the given directory
+ - When not given a directory, changes to your home directory
+ - 'cd ..' will change to your parent directory, 'cd ../..' will change to the grandparent
+   directory, and so on.
+ - Works with relative and absolute path names.
+ - Stands for 'change directories'
+ - "Move me to this directory."
+
+ls [directory_name]
+ - Lists all the files in the given directory
+ - When not given an argument, ls lists all the files in your working directory.
+ - Stands for 'list'
+ - "What can I see?"
+ 
+ls -a [directory_name]
+ - Lists EVERY file in the given directory, even hidden files
+ - -a stands for 'all'
+ - "No, really, what can I see?"
+
+pwd
+ - Print out the absolution path of your working directory
+ - stands for 'print working directory'
+ - "Where am I?"
+
+Creating, Deleting, and Moving Things
+----------------------------------------------------------------------------------------------------
+cp <source> <destination>
+ - Copies the FILE specified by source into the destination.
+ - If destination is a directory, copies the source file, with the same name, into that directory
+ - If destination is a file, copies and renames the source file to be the given file
+ - e.g. 'cp my_file.txt other_file.txt' renames my_file.txt into other_file.txt but both files have
+   the same contents.
+ - Stands for 'copy'
+
+cp -r <source> <destination>
+ - Copies the DIRECTORY specified by source into the destination.
+ - The only difference is -r is for directories
+ - -r stands for 'recursive'.
+
+mkdir <directory_name>
+ - Creates the directory with the given name.
+ - Stands for 'make directory'
+
+mv <source> <destination>
+ - Same rules as 'cp'; however, the source file is deleted. Also, no -r is needed to move 
+   directories.
+ - Stands for 'move'
+
+rm <file_name>
+ - Deletes the given FILE.
+ - Stands for 'remove'
+
+rm -r <dir_name>
+ - Deletes the given DIRECTORY.
+
+touch <file_name>
+ - Creates an empty file with the given name.
+ - Stands for 'touch.' I don't know why.
+
+Java
+----------------------------------------------------------------------------------------------------
+javac <ClassName>.java
+ - Compiles the program with the given file name.
+ - You MUST use the .java file extension here.
+
+java <ClassName>
+ - Executes the program with the given name.
+ - Do NOT use a .java file extension here.
+ - e.g. 'java HelloWorld'
+
+Git
+----------------------------------------------------------------------------------------------------
+All these commands should be executed from the directory for your whole repository, not a
+subdirectory.
+
+git clone <repository_url>
+ - Creates a new directory with the name of the repository and copies all files from the online
+   repository into this local directory.
+ - You should have run this command to be able to view this file!
+ - You get the repository url from the green 'Clone or Download' button on your repository
+   homepage.
+ - "Make me a folder and download every file from the online repository into it"
+
+git add .
+ - The period must be included.
+ - Prepares all files you've changed to be committed.
+ - "Save all the changes I've made so far."
+
+git commit -m "<message>"
+ - Should be executed after 'git add'
+ - Gives all of the changes you've made a description, and makes them ready to be uploaded to the
+   online repository.
+ - Your commit message should describe the changes you made, e.g. "Created terminal cheat sheet."
+ - "Describe my changes this way and get ready to upload them."
+
+git push
+ - Should be executed after 'git commit'
+ - Uploads your commit to your online repository.
+ - "Upload my changes."
+
+git pull
+ - Downloads changes you (or others) have pushed to the repository from another computer.
+ - Make sure you don't have any un-committed changes before you pull.
+ - "Download someone else's changes."

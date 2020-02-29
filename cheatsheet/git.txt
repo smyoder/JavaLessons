@@ -99,3 +99,75 @@ GitHub allows multiple users to make changes to the same files. If two users mak
 Git won't know whose to keep. When this happens, it's called a merge conflict, and specific things
 must be done to fix it.
 
+Step 1.
+-------
+I uploaded a file to GitHub and edited it (as though it were being edited by another user). I made a
+different edit on my machine.
+
+This is what the file looks like online:
+  This is a text file.
+  It has some words in it.
+  This is a change I made on GitHub.
+  These are some more words.
+
+This is what the file looks like on my computer:
+  This is a text file.
+  It has some words in it.
+  This is a change I made on my computer.
+  These are some more words.
+
+Since both changes were made to the same file, GitHub doesn't know which one to discard. If I try to
+push my changes, here's what happens:
+   ! [rejected]        master -> master (fetch first)
+  error: failed to push some refs to 'https://github.com/smyoder/JavaLessons.git'
+  hint: Updates were rejected because the remote contains work that you do
+  hint: not have locally. This is usually caused by another repository pushing
+  hint: to the same ref. You may want to first integrate the remote changes
+  hint: (e.g., 'git pull ...') before pushing again.
+  hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Step 2.
+-------
+Now I'll run 'git pull'.
+  $ git pull
+  remote: Enumerating objects: 5, done.
+  remote: Counting objects: 100% (5/5), done.
+  remote: Compressing objects: 100% (3/3), done.
+  remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+  Unpacking objects: 100% (3/3), done.
+  From https://github.com/smyoder/JavaLessons
+     d73161c..11b8be3  master     -> origin/master
+  Auto-merging conflict.txt
+  CONFLICT (content): Merge conflict in conflict.txt
+  Automatic merge failed; fix conflicts and then commit the result.
+
+The worst has been confirmed. There's a merge conflict and I have to fix it manually.
+
+Step 3.
+-------
+The file conflict.txt looks like this:
+  This is a text file.
+  It has some words in it.
+  <<<<<<< HEAD
+  This is a change I made on my computer.
+  =======
+  This is a change I made on GitHub.
+  >>>>>>> 11b8be3f203b46e01e5a6511fc2f82143815ae57
+  These are some more words.
+  
+Notice how both changes are present, along with some nonsense.
+Luckily, fixing merge conflicts is actuall pretty easy. Simply edit the file so it looks like what
+you want. In this case, I want to keep both changes. Now my file looks like this:
+  This is a text file.
+  It has some words in it.
+  This is a change I made on my computer.
+  This is a change I made on GitHub.
+  These are some more words.
+(I just erased the nonsense)
+
+Step 4.
+-------
+Now, all I have to do is make an extra commit saying that I fixed a merge conflict.
+First I run 'git add .' to add my changes.
+Then I make a commit. My terminal looks like this:
+

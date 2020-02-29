@@ -220,7 +220,8 @@ git status
  - Shows the status of all your changes
  - Changes not added will be shown in red
  - Changes added will be shown in green
- 
+ - If you have a commit which hasn't been pushed, your repository will be reported as ahead by some
+   number of commits
 
 git add .
  - The period must be included.
@@ -243,3 +244,7 @@ git pull
  - Downloads changes you (or others) have pushed to the repository from another computer.
  - Make sure you don't have any un-committed changes before you pull.
  - "Download someone else's changes."
+
+git stash
+ - Run this command if you have any changes which you don't want to keep. This will revert your
+   files back to a previous state. Useful when you're getting merge conflicts.

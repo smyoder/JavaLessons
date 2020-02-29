@@ -83,4 +83,19 @@ Note that, if a command succeeds, you won't need to run it again if the next one
 Downloading Changes
 ----------------------------------------------------------------------------------------------------
 Downloading changes using git pull is usually very straightforward, but comes with the most error
-cases that must be 
+cases that must be dealt with.
+
+- Before you are able to pull, all your changes must be committed. Run 'git status' and make sure
+  no files are appearing.
+
+- Run 'git pull'. You may have to type in your git credentials. Keep in mind that passwords typed
+  into terminal are not shown, but characters you type are still getting entered.
+
+- If you get a merge conflict, see the next section.
+
+Resolving Merge Conflicts
+----------------------------------------------------------------------------------------------------
+GitHub allows multiple users to make changes to the same files. If two users make clashing changes,
+Git won't know whose to keep. When this happens, it's called a merge conflict, and specific things
+must be done to fix it.
+

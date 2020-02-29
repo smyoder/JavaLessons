@@ -1,4 +1,3 @@
 This is a text file.
 It has some words in it.
-This is a change I made from my computer.
 These are some more words.

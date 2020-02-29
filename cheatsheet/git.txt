@@ -1,0 +1,86 @@
+====================================================================================================
+                                           Git Cheatsheet
+====================================================================================================
+
+What is Git?
+----------------------------------------------------------------------------------------------------
+Git is a 'version control' system. Version control systems allow programmers to track changes they
+make to their code. This is really useful if multiple people are coding one program. It's also
+useful for documenting the development process of a program.
+
+Programs are stored in 'repositories' in Git. A repository is like a special folder that holds all
+the files for a program but, through version control, also has access to all prior versions of said
+program.
+
+By combining Git with GitHub, we can do version control across multiple computers, by synching up
+everyone's local repository with an online repository. In this way, we can use Git kind of like a
+'Google Docs' for programming.
+
+Why do I want you to use Git?
+----------------------------------------------------------------------------------------------------
+- I want you to be able to take your code with you after you leave this class.
+- I want you to be able to work in teams to create programs.
+- I want to help acclimate you to common industry practice - version control is a very powerful
+  thing used by virtually every software development firm.
+
+Getting Help
+----------------------------------------------------------------------------------------------------
+There is some very nice documentation on git here: https://git-scm.com/book/en/v2
+
+Creating a Repository
+----------------------------------------------------------------------------------------------------
+Whenever you want to work on a new project with Git, you should create a new repository. This
+repository will exist solely online until you clone it.
+- Navigate to github.com
+- Create an account (if you haven't)
+- From your homepage, there should be a green 'New' button in the top left of the screen next to
+  'Repositories'
+- Click the button, enter your repository name, and check "Initialize this repository with a 
+  README."
+- You're done!
+
+Cloning a Repository
+----------------------------------------------------------------------------------------------------
+Cloning a repository is the process of downloading the files you want to work with from GitHub into
+a local repository on your computer.
+- Navigate to the page of the repository you want to clone
+- Click the green 'Clone or Download' button on the top right of the screen
+- Copy the link (Make sure you're cloning with HTTPS, not SSH)
+- In terminal, in a directory of your choice, type 'git clone ' and paste the link by right-clicking
+- Hit enter
+- You're done!
+
+Uploading Changes
+----------------------------------------------------------------------------------------------------
+Uploading changes takes several steps. For your purposes, this will likely be a bother, but
+understand that Git has a myriad of uses far more complicated than being a file upload/download
+tool. If you pursue an education/career in computer science, Git will become your best friend.
+
+Note that, if a command succeeds, you won't need to run it again if the next one fails. (e.g. if 
+'git add' works perfectly fine, if 'git commit' fails, I just need to try git commit again.)
+- Navigate to the parent directory of your repository. (This is the directory which contains the
+  directory '.git'. You can check for .git by running 'ls -a').
+
+- Run the command 'git add .' This command adds every change you've made to the current commit. The
+  period in this command just tells git to add all changes. You will likely not be concerned with
+  adding specific files until you've reached a point where you're far beyond the need for this cheat
+  sheet.
+
+- Afterwards, run the command 'git commit -m "message"' (You will want to type something other than
+  "message"). The message should be a short description of the changes you made. If you don't
+  include the -m argument, terminal will open up your default text editor for entering a message.
+  By default, this is usually vim. You don't want to open vim ever. Don't forget to include your
+  commit messages.
+
+- At this point, you're ready to upload. However, if you're working with multiple people on the same
+  repository, run 'git pull' at this point. If someone else made changes before you upload yours,
+  your upload will not succeed. If you get an error about a merge conflict, see the section on merge
+  conflicts.
+
+- To upload your commit to the online repository, run the command 'git push'. You may need to enter
+  your GitHub credentials, but if the push succeeds, your changes will be uploaded.
+
+Downloading Changes
+----------------------------------------------------------------------------------------------------
+Downloading changes using git pull is usually very straightforward, but comes with the most error
+cases that must be 

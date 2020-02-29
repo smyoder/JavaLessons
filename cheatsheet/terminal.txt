@@ -103,6 +103,13 @@ Funky characters
  - Write an ampersand after your command to have it run in the background, so you can type
    other commands in the meantime.
 
+ctrl+C
+ - This is not really a funky character but it is a really useful thing to know.
+ - If you hit ctrl+C while terminal is open, it will stop a currently executing program.
+ - This is useful if you accidentally program an infinite loop into your code,
+ - Or if you type something by accident which messes up your terminal.
+ - If you are ever in a state where you can't type into terminal, just hit ctrl+C
+
 Getting help
 ----------------------------------------------------------------------------------------------------
 help [command_name]
@@ -175,6 +182,15 @@ rm -r <dir_name>
 touch <file_name>
  - Creates an empty file with the given name.
  - Stands for 'touch.' I don't know why.
+ 
+Displaying File Contents
+----------------------------------------------------------------------------------------------------
+cat <filename>
+ - This will print out the contents of a file directly to terminal. Not recommended for large files.
+ - Stands for 'concatenate'
+
+less <filename>
+ - This will open up a file for you to read in terminal with the up and down arrow keys.
 
 Java
 ----------------------------------------------------------------------------------------------------
@@ -199,6 +215,12 @@ git clone <repository_url>
  - You get the repository url from the green 'Clone or Download' button on your repository
    homepage.
  - "Make me a folder and download every file from the online repository into it"
+
+git status
+ - Shows the status of all your changes
+ - Changes not added will be shown in red
+ - Changes added will be shown in green
+ 
 
 git add .
  - The period must be included.

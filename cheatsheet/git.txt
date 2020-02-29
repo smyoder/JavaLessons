@@ -170,4 +170,8 @@ Step 4.
 Now, all I have to do is make an extra commit saying that I fixed a merge conflict.
 First I run 'git add .' to add my changes.
 Then I make a commit. My terminal looks like this:
+  $ git add .
+  $ git commit -m "Fixed merge conflict in conflict.txt"
+  [master 030f498] Fixed merge conflict in conflict.txt
 
+Now all I have to do is run 'git push' like normal! The conflict is fixed!

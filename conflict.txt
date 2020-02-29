@@ -1,5 +1,0 @@
-This is a text file.
-It has some words in it.
-This is a change I made on my computer.
-This is a change I made on GitHub.
-These are some more words.

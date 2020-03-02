@@ -1,0 +1,159 @@
+====================================================================================================
+                                          Java Cheat Sheet
+====================================================================================================
+
+Naming
+----------------------------------------------------------------------------------------------------
+class constants get written like this:
+ALL_CAPS_WITH_UNDERSCORES
+
+class names get written like this:
+FirstLetterEveryWordCapitalized
+
+method and variable names get written like this:
+firstLetterCapExceptFirstWord
+(camel case)
+
+Class Declarations
+----------------------------------------------------------------------------------------------------
+public class ClassName {
+  //Constant and global variable declarations go in here
+  //Method declarations go in here
+} //ClassName
+
+Method Declarations
+----------------------------------------------------------------------------------------------------
+public static returnType methodName(type1 name1, type2 name2, ... typeN nameN) {
+  //Statements go in here
+} //methodName
+
+Examples:
+
+/*
+ * This method takes no parameters and returns nothing
+ */
+public static void printMyName() {
+  System.out.println("Spencer Yoder");
+} //printMyName
+
+/*
+ * This method takes no parameters but returns an integer
+ */
+public static int returnFive() {
+  return 5;
+} //returnFive
+
+/*
+ * This method takes some parameters but returns nothing
+ */
+public static void repeatPrint(String message, int repeat) {
+  for(int i = 1; i <= repeat; i++) {
+    System.out.println(message);
+  } //for i
+}//repeatPrint
+
+/*
+ * This method takes some parameters and returns a boolean
+ */
+public static boolean contains(String searchIn, char searchFor) {
+  for(int i = 0; i < searchIn.length(); i++) {
+    if(searchIn.charAt(i) == searchFor) {
+      return true;
+    } //if
+  } //for i
+  return false;
+} //contains
+
+For Loops
+----------------------------------------------------------------------------------------------------
+The simplest for loop can be used to run a set of statements some number of times. A general form
+of this usage is below:
+
+for(int i = 1; i <= endingValue; i++) {
+  //statements go in here
+} // for i
+
+Example:
+//Print the sentence "I like computer science." ten times.
+for(int i = 1; i <= 10; i++) {
+  System.out.println("I like computer science.");
+} //for i
+
+However, a for loop is a pretty general construct. The looping part is helpful, but you also have
+this nice variable that can change every iteration of the loop. A more general view of for loops
+looks like the following:
+
+for(int var = startingValue; <loop condition>; <change the variable>) {
+
+} //for var
+
+After every time the loop runs, it checks the loop condition. If it's true, the loop runs the
+'change variable' code and runs the loop again.
+
+//This loop prints out every multiple of 5 from 5 to 100
+for(int i = 5; i <= 100; i = i + 5) {
+  System.out.println(i);
+} //for i
+
+//This loop prints out every power of 2 less than 500
+for(int i = 1; i < 500; i = i * 2) {
+  System.out.println(i);
+} //for i
+
+//This loop prints out every number from 100 to 0 in decreasing order
+for(int i = 100; i >= 0; i--) {
+  System.out.println(i);
+} //for i
+
+//This loop runs until i overflows: https://en.wikipedia.org/wiki/Integer_overflow
+for(int i = 0; i >= 0; i++) {
+  System.out.println(i);
+} //for i
+
+//This loop runs forever!
+for(int i = 0; 42 > 41; i++) {
+  System.out.println(i);
+} //for i
+
+For loops can be nested inside each other. Every time the outer loop runs once, the inner loop will
+go through its whole loop/
+
+//Prints out a multiplication table from 1 to 10
+for(int i = 1; i <= 10; i++) {
+  for(int j = 1; j <= 10; j++) {
+    System.out.print(i * j + " ");
+  } //for j
+  System.out.println();
+} //for i
+
+This is the most I've ever nested a for loop. It's for helping check to see if a sudoku board is
+solved:
+for(int r = 0; r < 9; r += 3) {
+  for(int c = 0; c < 9; c += 3) {
+    for(int i = r; i < r + 3; i++) {
+      for(int j = c; j < c + 3; j++) {
+        int l = j + 1;
+        for(int k = i; k < r + 3; k++) {
+          for(; l < c + 3; l++) {
+            if(board[i][j] == board[k][l]) {
+              score++;
+              problems[i][j] = true;
+              problems[k][l] = true;
+            }
+          }
+          l = c;
+        }
+      }
+    }
+  }
+}
+This code is a little difficult to parse, I just wanted to display that for loops can be nested
+as deep as you like.
+
+While Loops
+----------------------------------------------------------------------------------------------------
+While loops are used when you don't want to loop a set of instructions a predefined number of times.
+The general form looks like this:
+while(<condition>) {
+
+} //while
